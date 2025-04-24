@@ -1,4 +1,4 @@
-package com.example.pharmacyproject.utils;
+package utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

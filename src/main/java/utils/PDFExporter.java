@@ -1,20 +1,17 @@
-package com.example.pharmacyproject.utils;
+package utils;
 
+import javafx.collections.ObservableList;
 import model.ChiTietHoaDon;
 import model.HoaDon;
 import model.KhachHang;
-import javafx.collections.ObservableList;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 
 public class PDFExporter {

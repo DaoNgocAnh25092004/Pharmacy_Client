@@ -1,4 +1,4 @@
-package com.example.pharmacyproject.utils;
+package utils;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 
