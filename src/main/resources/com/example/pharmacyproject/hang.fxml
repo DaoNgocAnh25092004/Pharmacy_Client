@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="" prefHeight="558.0" prefWidth="757.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacyproject.hangController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Quản lý" textFill="#76c8ee" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="104.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="104.0" AnchorPane.topAnchor="18.0">
+         <image>
+            <Image url="@../../../icon/arrow_icon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="134.0" layoutY="14.0" text="Hạng" textFill="#427287" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="40.0" text="Quản lý hạng của Vital Care" AnchorPane.leftAnchor="14.0">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TabPane id="tab-pane" layoutY="72.0" prefHeight="487.0" prefWidth="757.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab id="tab" styleClass="custom-tab-pane" text="Thêm hạng">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="28.0" text="Mã hạng ">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="maHangAddField" disable="true" layoutX="78.0" layoutY="20.0" prefHeight="32.0" prefWidth="160.0" />
+                        <Label layoutX="255.0" layoutY="28.0" text="Tên hạng ">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="514.0" layoutY="28.0" text="Điểm cần đạt">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="diemCanDatAddField" layoutX="610.0" layoutY="20.0" prefHeight="32.0" prefWidth="125.0" />
+                        <Label layoutX="14.0" layoutY="76.0" text="Mô tả">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="hangTableAdd" layoutX="-1.0" layoutY="115.0" prefHeight="337.0" prefWidth="758.0">
+                           <columns>
+                              <TableColumn fx:id="maHangAdd" prefWidth="97.0" text="Mã hạng " />
+                              <TableColumn fx:id="tenHangAdd" prefWidth="112.0" text="Tên hạng " />
+                              <TableColumn fx:id="diemCanDatAdd" minWidth="1.60003662109375" prefWidth="115.0" text="Điểm cần đạt" />
+                              <TableColumn fx:id="moTaAdd" prefWidth="432.0" text="Mô tả" />
+                           </columns>
+                        </TableView>
+                        <TextField fx:id="moTaHangAddField" layoutX="78.0" layoutY="68.0" prefHeight="32.0" prefWidth="430.0" promptText="Nhập mô tả..." />
+                        <Button fx:id="btnXoaFieldAdd" layoutX="630.0" layoutY="68.0" mnemonicParsing="false" opacity="0.6" prefHeight="32.0" prefWidth="106.0" style="-fx-background-color: red;" text="    Xóa ô nhập" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="637.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../icon/customer_trash.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="btnAddHang" layoutX="518.0" layoutY="68.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="104.0" style="-fx-background-color: #76c8ee;" text="Thêm Hạng" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="8.0" fitWidth="8.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../icon/add_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TextField fx:id="tenHangAddField" layoutX="338.0" layoutY="20.0" prefHeight="32.0" prefWidth="160.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab id="h-tab" disable="true" styleClass="custom-tab-pane">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="752.0" />
+               </content>
+            </Tab>
+            <Tab id="tab" styleClass="custom-tab-pane" text="Cập nhật hạng">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="28.0" text="Mã hạng ">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="maHangUpdateField" disable="true" layoutX="78.0" layoutY="20.0" prefHeight="32.0" prefWidth="160.0" />
+                        <Label layoutX="261.0" layoutY="28.0" text="Tên hạng ">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="522.0" layoutY="28.0" text="Điểm cần đạt">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="diemCanDatUpdateField" layoutX="620.0" layoutY="20.0" prefHeight="32.0" prefWidth="112.0" />
+                        <Label layoutX="14.0" layoutY="76.0" text="Mô tả">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="updateHangTable" layoutX="-1.0" layoutY="115.0" prefHeight="337.0" prefWidth="758.0">
+                           <columns>
+                              <TableColumn fx:id="maHangUpdate" prefWidth="97.0" text="Mã hạng " />
+                              <TableColumn fx:id="tenHangUpdate" prefWidth="112.0" text="Tên hạng " />
+                              <TableColumn fx:id="diemCanDatUpdate" minWidth="1.60003662109375" prefWidth="115.0" text="Điểm cần đạt" />
+                              <TableColumn fx:id="moTaUpdate" prefWidth="432.0" text="Mô tả" />
+                           </columns>
+                        </TableView>
+                        <TextField fx:id="moTaHangUpdateField" layoutX="78.0" layoutY="68.0" prefHeight="32.0" prefWidth="430.0" promptText="Nhập mô tả..." />
+                        <Button fx:id="btnUpdateHang" layoutX="522.0" layoutY="68.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="97.0" style="-fx-background-color: #76c8ee;" text=" Cập nhật" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="18.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../icon/customer_save.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnXoaFieldUpdate" layoutX="630.0" layoutY="68.0" mnemonicParsing="false" opacity="0.6" prefHeight="32.0" prefWidth="106.0" style="-fx-background-color: red;" text="    Xóa ô nhập" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="637.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../icon/customer_trash.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="tenHangUpdateField" layoutX="340.0" layoutY="20.0" prefHeight="32.0" prefWidth="160.0" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab id="h-tab" disable="true" styleClass="custom-tab-pane">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="752.0" />
+               </content>
+            </Tab>
+            <Tab id="tab" styleClass="custom-tab-pane" text="Xóa hạng">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="28.0" text="Mã hạng ">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="maHangDelField" layoutX="78.0" layoutY="20.0" prefHeight="32.0" prefWidth="160.0" />
+                        <Label layoutX="265.0" layoutY="28.0" text="Tên hạng ">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="delHangTable" layoutX="-1.0" layoutY="75.0" prefHeight="378.0" prefWidth="758.0">
+                           <columns>
+                              <TableColumn fx:id="maHangDel" prefWidth="97.0" text="Mã hạng " />
+                              <TableColumn fx:id="tenHangDel" prefWidth="112.0" text="Tên hạng " />
+                              <TableColumn fx:id="diemCanDatDel" minWidth="1.60003662109375" prefWidth="115.0" text="Điểm cần đạt" />
+                              <TableColumn fx:id="moTaDel" prefWidth="432.0" text="Mô tả" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="btnDelHang" layoutX="626.0" layoutY="20.0" mnemonicParsing="false" opacity="0.6" prefHeight="32.0" prefWidth="106.0" style="-fx-background-color: red;" text="        Xóa hạng" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="641.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../icon/customer_trash.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="tenHangDelField" layoutX="345.0" layoutY="21.0" prefHeight="32.0" prefWidth="257.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab id="h-tab" disable="true" styleClass="custom-tab-pane">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="752.0" />
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

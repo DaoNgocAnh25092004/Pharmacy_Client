@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacyproject.Dashboard">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="270.0" style="-fx-background-color: #63C5EE;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+            <Line endX="154.69287109375" endY="7.62939453125E-6" layoutX="116.0" layoutY="65.0" startX="-115.00001525878906" startY="3.814697265625E-6" stroke="WHITE" AnchorPane.leftAnchor="0.292877197265625" AnchorPane.rightAnchor="0.600006103515625" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" text="Vital Care" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="30.0" />
+               </font>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+            <Button fx:id="signOutBtn" layoutX="94.0" layoutY="613.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="273.0" style="-fx-background-color: #63C5EE;" text="Đăng xuất" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets right="46.0" />
+               </padding>
+            </Button>
+            <ImageView fx:id="signOutImgView" fitHeight="24.0" fitWidth="24.0" layoutX="161.0" layoutY="602.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icon/signout_icon.png" />
+               </image>
+            </ImageView>
+            <VBox layoutX="74.0" layoutY="89.0" prefHeight="498.0" prefWidth="273.0" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0">
+               <children>
+                  <TreeView fx:id="treeViewQuanLy" onMouseClicked="#clickTreeViewQuanLy" prefHeight="60.0" prefWidth="0.0" />
+                  <TreeView fx:id="traCuuTreeView" onMouseClicked="#click_tra_cuu_btn" prefHeight="60.0" prefWidth="270.0" />
+                  <TreeView fx:id="thongKeBtn" onMouseClicked="#click_thong_ke_btn" prefHeight="60.0" prefWidth="270.0" />
+               </children>
+            </VBox>
+            <TreeView fx:id="trangChuTreeView" onMouseClicked="#onHomeClicked" prefHeight="60.0" prefWidth="273.0" visible="false" />
+            <AnchorPane layoutY="90.4000015258789" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </AnchorPane>
+            <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="32.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icon/logo_app.png" />
+               </image>
+            </ImageView>
+            <Line endX="147.49998474121094" layoutX="124.0" layoutY="587.0" startX="-122.0" stroke="WHITE" AnchorPane.leftAnchor="1.5" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="66.0" prefWidth="751.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="userNameLabel" alignment="CENTER" layoutX="661.0" layoutY="14.0" style="-fx-min-width: 67;" text="UserName" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="37.6" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="14.0">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="userRoleLabel" layoutX="675.0" layoutY="30.0" text="Quản lý" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="30.0" />
+                  <Line endX="531.0" endY="1.0" layoutX="220.0" layoutY="65.0" startX="-221.0" startY="1.0" stroke="#76c8ee" strokeWidth="3.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="contentArea" layoutY="66.0" prefHeight="575.0" prefWidth="750.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0" />
+         </children></AnchorPane>
+   </center>
+</BorderPane>

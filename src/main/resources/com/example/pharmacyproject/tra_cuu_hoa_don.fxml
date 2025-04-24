@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="traCuuHoaDonPanel" prefHeight="560.0" prefWidth="753.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacyproject.TraCuuHoaDonController">
+    <children>
+        <Label layoutX="14.0" layoutY="14.0" text="Tra cứu hóa đơn" textFill="#76c8ee">
+            <font>
+                <Font name="Arial Bold" size="20.0" />
+            </font>
+        </Label>
+
+        <TextField fx:id="searchInputField" layoutX="14.0" layoutY="46.0" prefHeight="27.0" prefWidth="254.0" promptText="Nhập số điện thoại khách hàng">
+         <font>
+            <Font size="13.0" />
+         </font></TextField>
+        <Label fx:id="notifiTextField" layoutX="14.0" layoutY="76.0" textFill="red" />
+        <Button fx:id="searchBtn" layoutX="275.0" layoutY="46.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: #76c8ee;" text="Tìm kiếm" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icon/search_icon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+           <TableView fx:id="tableDetail" layoutX="264.0" layoutY="321.0" prefHeight="204.0" prefWidth="447.0">
+               <columns>
+                   <TableColumn fx:id="maThuocCol" prefWidth="96.80000305175781" text="Mã thuốc" />
+                   <TableColumn fx:id="tenThuocCol" prefWidth="78.39996337890625" text="Tên thuốc" />
+                   <TableColumn fx:id="soLuongCol" prefWidth="92.0" text="Số lượng" />
+                   <TableColumn fx:id="donGiaCol" prefWidth="79.2000732421875" text="Đơn giá" />
+                   <TableColumn fx:id="thanhTienCol" prefWidth="98.40001220703124" text="Thành tiền" />
+               </columns>
+           </TableView>
+          <GridPane fx:id="table" hgap="10" layoutX="240.0" layoutY="85.0" prefHeight="236.0" prefWidth="470.0" vgap="1">
+              <padding>
+            <Insets bottom="25" left="25" right="25" top="25" />
+         </padding>
+
+              <Label id="welcome-text" text="Thông tin Hóa đơn" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="0">
+                  <font>
+                      <Font name="Arial Bold" size="16.0" />
+                  </font>
+              </Label>
+
+              <Label text="Mã hóa đơn:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+              <Label fx:id="idField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+              <Label text="Mã khách hàng:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+              <Label fx:id="idCustomField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+              <Label text="Tên khách hàng:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+              <Label fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+              <Label text="Mã nhân viên:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+              <Label fx:id="idStaffField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+              <Label text="Ngày lập hóa đơn:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+              <Label fx:id="createdDateField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+              <Label text="Khấu trừ:" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+              <Label fx:id="discountField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+              <Label text="Thành tiền:" visible="false" GridPane.rowIndex="7" />
+              <Label fx:id="totalField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+              <Label text="Tổng tiền:" GridPane.rowIndex="6" />
+              <Label fx:id="sumField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+              <Label text="Tiền thừa:" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+              <Label fx:id="excessCashField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+         <columnConstraints>
+            <ColumnConstraints maxWidth="177.6" minWidth="11.400000000000002" prefWidth="145.59999999999997" />
+            <ColumnConstraints maxWidth="200.0" minWidth="0.0" prefWidth="400.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
+
+          </GridPane>
+          <TableView fx:id="tableView" layoutX="14.0" layoutY="113.0" prefHeight="412.0" prefWidth="239.0">
+              <columns>
+                  <TableColumn fx:id="maHDCol" prefWidth="117.59997844696045" text="Mã hóa đơn" />
+                  <TableColumn fx:id="ngayTaoCol" prefWidth="119.20001220703125" text="Ngày tạo" />
+              </columns>
+          </TableView>
+
+        <ComboBox fx:id="comboBoxMenu" layoutX="480.0" layoutY="46.0" prefHeight="26.0" prefWidth="160.0">
+        </ComboBox>
+    </children>
+</AnchorPane>

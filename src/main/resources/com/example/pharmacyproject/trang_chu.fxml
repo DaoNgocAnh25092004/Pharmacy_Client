@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="homePanel" prefHeight="560.0" prefWidth="753.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacyproject.TrangChuController">
+   <children>
+      <Label layoutX="155.0" layoutY="41.0" text="Chào mừng bạn đến với phần mềm quản lý tiệm thuốc tây" textFill="#63c5ee" AnchorPane.leftAnchor="155.0" AnchorPane.topAnchor="41.0">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="301.0" layoutY="71.0" text="Vital Care" textFill="#63c5ee" AnchorPane.leftAnchor="301.0" AnchorPane.topAnchor="71.0">
+         <font>
+            <Font name="Arial Bold" size="29.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="405.0" fitWidth="665.0" layoutX="132.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="131.27447509765625">
+         <image>
+            <Image url="@../../../icon/background.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

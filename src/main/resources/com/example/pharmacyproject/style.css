@@ -1,0 +1,111 @@
+
+/* Tùy chỉnh MenuItem */
+.menu-item {
+    -fx-background-color: #66B2D3;
+    -fx-font-family: "Arial", serif;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 260px; /* Cùng kích cỡ với MenuButton */
+    -fx-pref-height: 60px; /* Cùng kích cỡ với MenuButton */
+}
+
+.tree-view {
+    -fx-background-color: #63C5EE;
+}
+
+.tree-cell {
+    -fx-background-color: #63C5EE;
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Bold";
+    -fx-font-size: 14px;
+    -fx-padding: 6px 31px 6px 6px;
+    -fx-pref-height: 58px;
+}
+
+/* Đổi màu nền khi TreeItem được mở rộng */
+.tree-cell: hover{
+    -fx-background-color: #66B2D3;
+}
+
+.date-picker .text-field, .date-picker .arrow-button {
+    -fx-background-color: white;
+}
+
+/* Tùy chỉnh cho các tab */
+#tab-pane {
+    -fx-background-color:  #fff;
+}
+
+.tab {
+    -fx-background-color:  #fff;
+    -fx-background-radius:  20 20 0 0;
+    -fx-padding:  3 10 3 10;
+    -fx-border-color: #76c8ee;
+    -fx-border-radius:  20 20 0 0;
+    -fx-text-fill:  #fff;
+    -fx-tab-gap: 10px;
+
+}
+
+.tab-pane .tab-header-area {
+     -fx-background-color: #fff;
+ }
+
+.tab-label {
+    -fx-text-fill: #76c8ee;
+     -fx-font-weight: bold;
+}
+.tab:selected {
+    -fx-background-color: #76c8ee;
+    -fx-border-color: #76c8ee;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: #fff;
+}
+
+#h-tab {
+    -fx-background-color: transparent;
+    -fx-text-fill: #76c8ee;
+    -fx-border-color: transparent;
+}
+
+#h-tab:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: #76c8ee;
+}
+
+
+/*Table*/
+.table-view {
+    -fx-border-color:  #76c8ee;
+}
+.table-view .column-header {
+    -fx-background-color: #76c8ee;
+    -fx-text-fill: #fff;
+    -fx-border-color: #fff;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #fff;
+}
+
+/*Anchor Pane*/
+/*.anchor-pane {
+    -fx-background-color: #red;
+}*/
+
+/*Login btn*/
+#passwordField {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent transparent #76c8ee transparent;
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-radius: 0;
+    -fx-font-size: 14px;
+}
+

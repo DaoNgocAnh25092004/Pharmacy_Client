@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="558.0" prefWidth="752.0" style="-fx-background-color: #fff;" styleClass="anchor-pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacyproject.ThucPhamChucNangController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Quản lý" textFill="#76c8ee" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="104.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="104.0" AnchorPane.topAnchor="18.0">
+         <image>
+            <Image url="@../../../icon/arrow_icon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="134.0" layoutY="14.0" text="Thực phẩm chức năng" textFill="#427287" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="40.0" text="Quản lý thực phẩm chức năng của Vital Care" AnchorPane.leftAnchor="14.0">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TabPane layoutY="67.0" prefHeight="492.0" prefWidth="752.0" style="-fx-background-color: #fff;" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab id="tab" text="Thêm thực phẩm chức năng">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="752.0">
+                     <children>
+                        <TextField fx:id="maTPCNAddField" disable="true" editable="false" layoutX="95.0" layoutY="9.0" prefHeight="32.0" prefWidth="140.0" visible="false" />
+                        <Label layoutX="5.0" layoutY="17.0" text="NCC">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="58.0" text="Ngày nhập">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="ngayNhapTPCNAddField" layoutX="95.0" layoutY="50.0" prefHeight="32.0" prefWidth="140.0" promptText="dd-mm-yyyy" />
+                        <Label layoutX="5.0" layoutY="98.0" text="Hạn sử dụng">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="hanSuDungTPCNAddField" layoutX="95.0" layoutY="90.0" prefHeight="32.0" prefWidth="140.0" promptText="dd-mm-yyyy" />
+                        <TextField fx:id="tenTPCNAddField" layoutX="345.0" layoutY="10.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập tên thực phẩm chức năng" />
+                        <Label layoutX="245.0" layoutY="18.0" text="Tên TPCN">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="245.0" layoutY="59.0" text="Khối lượng(mg)">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="khoiLuongTPCNAddField" layoutX="345.0" layoutY="50.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập khối lượng..." />
+                        <TableView fx:id="TPCNTableAdd" layoutY="290.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="168.0" prefWidth="752.0">
+                           <columns>
+                              <TableColumn fx:id="maTPCNAdd" prefWidth="120.0" text="Mã TPCN" />
+                              <TableColumn fx:id="tenTPCNAdd" prefWidth="120.0" text="Tên TPCN" />
+                              <TableColumn fx:id="ttTPCNAdd" minWidth="1.60003662109375" prefWidth="120.0" text="Tình trạng TPCN" />
+                              <TableColumn fx:id="ngayNhapTPCNAdd" minWidth="1.60003662109375" prefWidth="100.0" text="Ngày nhập" />
+                              <TableColumn fx:id="hanSuDungTPCNAdd" prefWidth="100.0" text="Hạn sử dụng" />
+                              <TableColumn fx:id="soLoAddCol" prefWidth="75.0" text="Số lô SX" />
+                              <TableColumn fx:id="khoiLuongTPCNAdd" prefWidth="96.0" text="Khối lượng" />
+                              <TableColumn fx:id="dvtTPCNAdd" prefWidth="104.0" text="Đơn vị tính" />
+                              <TableColumn fx:id="thuongHieuTPCNAdd" prefWidth="100.0" text="Thương hiệu" />
+                              <TableColumn fx:id="nsxTPCNAdd" prefWidth="100.0" text="Nước sản xuất" />
+                              <TableColumn fx:id="moTaTPCNAdd" prefWidth="150.0" text="Mô tả" />
+                              <TableColumn fx:id="congDungTPCNAdd" prefWidth="150.0" text="Công dụng" />
+                              <TableColumn fx:id="loiKhuyenTPCNAdd" prefWidth="150.0" text="Lời khuyên" />
+                              <TableColumn fx:id="thueSuatTPCNAdd" prefWidth="100.0" text="Thuế suất" />
+                              <TableColumn fx:id="giaNhapTPCNAdd" prefWidth="100.0" text="Giá nhập" />
+                              <TableColumn fx:id="loiNhuanTPCNAdd" prefWidth="100.0" text="Lợi nhuận" />
+                              <TableColumn fx:id="giaBanTPCNAdd" prefWidth="100.0" text="Giá bán" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="btnAddTPCN" layoutX="634.0" layoutY="210.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="109.0" style="-fx-background-color: #76c8ee;" text="Thêm " textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="8.0" fitWidth="8.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../icon/add_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+
+                        <ComboBox fx:id="ccbttTPCNAdd" layoutX="494.0" layoutY="8.0" prefHeight="32.0" prefWidth="249.0" promptText="Tình trạng thực phẩm chức năng" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-radius: 4;" />
+                        <TextField fx:id="dvtTPCNAddField" layoutX="95.0" layoutY="130.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập đơn vị tính..." />
+
+                        <Label layoutX="5.0" layoutY="138.0" text="Đơn vị tính">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="nsxTPCNAddField" layoutX="345.0" layoutY="130.0" prefHeight="32.0" prefWidth="396.0" promptText="Nhập nước sản xuất..." />
+                        <Label layoutX="245.0" layoutY="138.0" text="Nước sản xuất">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+
+                        <TextField fx:id="thuongHieuTPCNAddField" layoutX="345.0" layoutY="90.0" prefHeight="32.0" prefWidth="141.0" promptText="Nhập thương hiệu..." />
+
+                        <Label layoutX="245.0" layoutY="98.0" text="Thương hiệu">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="moTaTPCNAddField" layoutX="570.0" layoutY="50.0" prefHeight="32.0" prefWidth="172.0" promptText="Nhập mô tả..." />
+                        <Label layoutX="496.0" layoutY="59.0" text="Mô tả">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+
+                        <TextField fx:id="giaNhapTPCNAddField" layoutX="345.0" layoutY="170.0" prefHeight="32.0" prefWidth="267.0" promptText="Nhập giá nhập..." />
+
+                        <Label layoutX="245.0" layoutY="178.0" text="Giá nhập">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+
+                        <TextField fx:id="thueSuatTPCNAddField" layoutX="95.0" layoutY="170.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập thuế suất..." />
+
+                        <Label layoutX="5.0" layoutY="178.0" text="Thuế suất(%)">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="loiNhuanTPCNAddField" layoutX="95.0" layoutY="210.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập lợi nhuận mong muốn..." />
+                        <Label layoutX="4.0" layoutY="220.0" text="Lợi nhuận(%)">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+
+                        <Button layoutX="633.0" layoutY="170.0" mnemonicParsing="false" opacity="0.6" prefHeight="32.0" prefWidth="110.0" style="-fx-background-color: red;" text=" Xóa rỗng" textFill="WHITE" fx:id="xoaRongAdd">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../icon/customer_trash.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+
+                        <TextField fx:id="congDungTPCNAddField" layoutX="570.0" layoutY="90.0" prefHeight="32.0" prefWidth="172.0" promptText="Nhập công dụng..." />
+                        <Label layoutX="496.0" layoutY="99.0" text="Công dụng">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="loiKhuyenTPCNAddField" layoutX="345.0" layoutY="213.0" prefHeight="32.0" prefWidth="268.0" promptText="Nhập lời khuyên..." />
+                        <Label layoutX="245.0" layoutY="221.0" text="Lời khuyên">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="4.0" layoutY="259.0" text="Số lô SX">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="soLoSXAddField" layoutX="95.0" layoutY="251.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập số lô sản xuất" />
+                        <Label layoutX="245.0" layoutY="259.0" text="Số lượng">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="inputSoLuong" layoutX="345.0" layoutY="251.0" prefHeight="32.0" prefWidth="269.0" promptText="Nhập số lượng..." />
+                        <Button fx:id="confirmBtn" layoutX="634.0" layoutY="251.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #76c8ee;" text="Xác nhận" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <ComboBox fx:id="comboBoxNCC" layoutX="95.0" layoutY="8.0" prefHeight="32.0" prefWidth="140.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-radius: 4;" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab id="h-tab" disable="true" style="-fx-boder-radius: 10;">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab id="tab" text="Cập nhật thông tin">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="752.0">
+            <children>
+               <TextField fx:id="maTPCNUpdateField" layoutX="95.0" layoutY="9.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập mã thực phẩm chức năng " />
+               <Label layoutX="5.0" layoutY="17.0" text="Mã TPCN">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <Label layoutX="5.0" layoutY="58.0" text="Ngày nhập">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <DatePicker fx:id="hanSuDungTPCNUpdateField" layoutX="95.0" layoutY="50.0" prefHeight="32.0" prefWidth="140.0" promptText="dd-mm-yyyy" />
+               <Label layoutX="5.0" layoutY="98.0" text="Hạn sử dụng">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <DatePicker fx:id="ngayNhapTPCNUpdateField" layoutX="95.0" layoutY="90.0" prefHeight="32.0" prefWidth="140.0" promptText="dd-mm-yyyy" />
+               <TextField fx:id="tenTPCNUpdateField" layoutX="345.0" layoutY="10.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập tên thực phẩm chức năng " />
+               <Label layoutX="245.0" layoutY="18.0" text="Tên TPCN">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <Label layoutX="245.0" layoutY="59.0" text="Khối lượng">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="khoiLuongTPCNUpdateField" layoutX="345.0" layoutY="50.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập khối lượng..." />
+               <TableView fx:id="TPCNTableUpdate" layoutY="252.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="206.0" prefWidth="752.0">
+                  <columns>
+                     <TableColumn fx:id="maTPCNUpdate" prefWidth="120.0" text="Mã TPCN" />
+                     <TableColumn fx:id="tenTPCNUpdate" prefWidth="120.0" text="Tên TPCN" />
+                     <TableColumn fx:id="ttTPCNUpdate" minWidth="1.6" prefWidth="120.0" text="Tình trạng" />
+                     <TableColumn fx:id="ngayNhapTPCNUpdate" minWidth="1.6" prefWidth="100.0" text="Ngày nhập" />
+                     <TableColumn fx:id="hanSuDungTPCNUpdate" prefWidth="100.0" text="Hạn sử dụng" />
+                     <TableColumn fx:id="khoiLuongTPCNUpdate" prefWidth="100.0" text="Khối lượng" />
+                     <TableColumn fx:id="dvtTPCNUpdate" prefWidth="100.0" text="Đơn vị tính" />
+                     <TableColumn fx:id="thuongHieuTPCNUpdate" prefWidth="100.0" text="Thương hiệu" />
+                     <TableColumn fx:id="nsxTPCNUpdate" prefWidth="100.0" text="Nước sản xuất" />
+                     <TableColumn fx:id="moTaTPCNUpdate" prefWidth="150.0" text="Mô tả" />
+                     <TableColumn fx:id="congDungTPCNUpdate" prefWidth="150.0" text="Công dụng" />
+                     <TableColumn fx:id="loiKhuyenTPCNUpdate" prefWidth="150.0" text="Lời khuyên" />
+                     <TableColumn fx:id="thueSuatTPCNUpdate" prefWidth="100.0" text="Thuế suất" />
+                     <TableColumn fx:id="giaNhapTPCNUpdate" prefWidth="100.0" text="Giá nhập" />
+                     <TableColumn fx:id="loiNhuanTPCNUpdate" prefWidth="100.0" text="Lợi nhuận" />
+                     <TableColumn fx:id="giaBanTPCNUpdate" prefWidth="100.0" text="Giá bán" />
+                  </columns>
+
+               </TableView>
+               <ComboBox fx:id="ccbttTPCNUpdate" layoutX="495.0" layoutY="8.0" prefHeight="32.0" prefWidth="248.0" promptText="Tình trạng thực phẩm chức năng" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-radius: 4;" />
+               <TextField fx:id="dvtTPCNUpdateField" layoutX="95.0" layoutY="130.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập đơn vị tính..." />
+               <Label layoutX="5.0" layoutY="138.0" text="Đơn vị tính">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="nsxTPCNUpdateField" layoutX="345.0" layoutY="130.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập nước sản xuất..." />
+               <Label layoutX="245.0" layoutY="138.0" text="Nước sản xuất">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="thuongHieuTPCNUpdateField" layoutX="345.0" layoutY="90.0" prefHeight="32.0" prefWidth="141.0" promptText="Nhập thương hiệu..." />
+               <Label layoutX="245.0" layoutY="98.0" text="Thương hiệu">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="moTaTPCNUpdateField" layoutX="570.0" layoutY="50.0" prefHeight="32.0" prefWidth="172.0" promptText="Nhập mô tả..." />
+               <Label layoutX="496.0" layoutY="59.0" text="Mô tả">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="giaNhapTPCNUpdateField" layoutX="345.0" layoutY="170.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập giá nhập..." />
+               <Label layoutX="245.0" layoutY="178.0" text="Giá nhập">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="thueSuatTPCNUpdateField" layoutX="95.0" layoutY="170.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập thuế suất..." />
+               <Label layoutX="5.0" layoutY="178.0" text="Thuế suất">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="loiNhuanTPCNUpdateField" layoutX="95.0" layoutY="210.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập lợi nhuận mong muốn..." />
+               <Label layoutX="5.0" layoutY="221.0" text="Lợi nhuận">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="giaBanTPCNUpdateField" disable="true" layoutX="345.0" layoutY="210.0" prefHeight="32.0" prefWidth="140.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></TextField>
+               <Label layoutX="245.0" layoutY="218.0" text="Giá bán">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <Button layoutX="495.0" layoutY="170.0" mnemonicParsing="false" opacity="0.6" prefHeight="32.0" prefWidth="248.0" style="-fx-background-color: red;" text=" Xóa rỗng" textFill="WHITE" fx:id="xoaRongUpdate">
+                  <font>
+                     <Font name="Arial Bold" size="13.0" />
+                  </font>
+                  <graphic>
+                     <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../icon/customer_trash.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
+               <TextField fx:id="congDungTPCNUpdateField" layoutX="570.0" layoutY="90.0" prefHeight="32.0" prefWidth="172.0" promptText="Nhập công dụng..." />
+               <Label layoutX="496.0" layoutY="99.0" text="Công dụng">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="loiKhuyenTPCNUpdateField" layoutX="571.0" layoutY="130.0" prefHeight="32.0" prefWidth="172.0" promptText="Nhập lời khuyên..." />
+               <Label layoutX="497.0" layoutY="139.0" text="Lời khuyên">
+                  <font>
+                     <Font name="Arial" size="14.0" />
+                  </font>
+               </Label>
+               <Button fx:id="btnUpdateTPCN" layoutX="495.0" layoutY="210.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="249.0" style="-fx-background-color: #76c8ee;" text="        Cập nhật  " textFill="WHITE">
+                  <font>
+                     <Font name="Arial Bold" size="13.0" />
+                  </font>
+               </Button>
+
+               <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="583.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../icon/customer_save.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab id="h-tab" disable="true" style="-fx-boder-radius: 10;">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab id="tab" text="Xóa  thực phẩm chức năng">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="517.0" prefWidth="752.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <TextField fx:id="maTPCNDelField" layoutX="112.0" layoutY="14.0" prefHeight="32.0" prefWidth="246.0" promptText="Nhập mã thực phẩm chức năng..." />
+                        <Label layoutX="8.0" layoutY="22.0" text="Mã TPCN">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="75.0" text="Tên TPCN">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+
+                        <TextField fx:id="tenTPCNDelField" layoutX="112.0" layoutY="67.0" prefHeight="32.0" prefWidth="464.0" promptText="Nhập tên thực phẩm chức năng..." />
+                        <Button fx:id="btnDelTPCN" layoutX="601.0" layoutY="67.0" mnemonicParsing="false" opacity="0.6" prefHeight="32.0" prefWidth="137.0" style="-fx-background-color: red;" text=" Xóa " textFill="WHITE">
+
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../icon/customer_trash.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TableView fx:id="TPCNTableDel" layoutY="126.0" prefHeight="331.0" prefWidth="752.0">
+                           <columns>
+                              <TableColumn fx:id="maTPCNDel" prefWidth="120.0" text="Mã TPCN" />
+                              <TableColumn fx:id="tenTPCNDel" prefWidth="120.0" text="Tên TPCN" />
+                              <TableColumn fx:id="ttTPCNDel" minWidth="1.60003662109375" prefWidth="120.0" text="Tình trạng TPCN" />
+                              <TableColumn fx:id="ngayNhapTPCNDel" minWidth="1.60003662109375" prefWidth="100.0" text="Ngày nhập" />
+                              <TableColumn fx:id="hanSuDungTPCNDel" prefWidth="100.0" text="Hạn sử dụng" />
+                              <TableColumn fx:id="khoiLuongTPCNDel" prefWidth="100.0" text="Khối lượng" />
+                              <TableColumn fx:id="dvtTPCNDel" prefWidth="100.0" text="Đơn vị tính" />
+                              <TableColumn fx:id="thuongHieuTPCNDel" prefWidth="100.0" text="Thương hiệu" />
+                              <TableColumn fx:id="nsxTPCNDel" prefWidth="100.0" text="Nước sản xuất" />
+                              <TableColumn fx:id="moTaTPCNDel" prefWidth="150.0" text="Mô tả" />
+                              <TableColumn fx:id="congDungTPCNDel" prefWidth="150.0" text="Công dụng" />
+                              <TableColumn fx:id="loiKhuyenTPCNDel" prefWidth="150.0" text="Lời khuyên" />
+                              <TableColumn fx:id="thueSuatTPCNDel" prefWidth="100.0" text="Thuế suất" />
+                              <TableColumn fx:id="giaNhapTPCNDel" prefWidth="100.0" text="Giá nhập" />
+                              <TableColumn fx:id="loiNhuanTPCNDel" prefWidth="100.0" text="Lợi nhuận" />
+                              <TableColumn fx:id="giaBanTPCNDel" prefWidth="100.0" text="Giá bán" />
+
+                           </columns>
+                        </TableView>
+                        <Label layoutX="408.0" layoutY="22.0" text="Ngày nhập">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="ngayNhapTPCNDelField" layoutX="498.0" layoutY="14.0" prefHeight="32.0" prefWidth="240.0" promptText="dd-mm-yyyy" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
