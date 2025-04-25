@@ -105,8 +105,6 @@ public class ThuocController implements Initializable {
     @FXML
     private Button xoaRongAdd;
     @FXML
-    private Button xacNhanButton;
-    @FXML
     private ComboBox<String> comboBoxNhaCC;
 
     // Du lieu sua
@@ -305,6 +303,9 @@ public class ThuocController implements Initializable {
                 maThuocAddField.setText(newValue.getMaSP());
                 tenThuocAddField.setText(newValue.getTenSP());
                 hanSuDungThuocAddField.setValue(newValue.getHanSD());
+                giaBanAddField.setText(String.valueOf(newValue.getGiaBan()));
+                ngayNhapThuocAddField.setValue(newValue.getNgaySX());
+
 
                 // Format khoiLuong
                 String khoiLuongFormatted = decimalFormat.format(newValue.getKhoiLuong());
@@ -315,11 +316,18 @@ public class ThuocController implements Initializable {
                 thuongHieuThuocAddField.setText(newValue.getThuongHieu());
                 moTaThuocAddField.setText(newValue.getMoTa());
 
+
                 // Format giaNhap
                 String giaNhapFormatted = decimalFormat.format(newValue.getGiaBan());
                 tdpThuocAddField.setText(newValue.getTacDungPhu());
 
                 ccbttThuocAdd.setValue(newValue.getTinhTrangSP());
+
+                dvtThuocAddField.setValue(newValue.getDonViTinh());
+
+                nhomThuocField.setValue(newValue.getNhomThuoc());
+
+                loaiSPComboBox.setValue(newValue.getLoaiSP());
             }
         });
 
@@ -328,7 +336,6 @@ public class ThuocController implements Initializable {
         btnDelThuoc.setOnAction(event -> onDeleteThuocClick());
         xoaRongAdd.setOnAction(event -> cleanInput(CLEAN_ADD_Thuoc_INPUT));
         xoaRongUpdate.setOnAction(event -> cleanInput(CLEAN_UPDATE_Thuoc_INPUT));
-        xacNhanButton.setOnAction(event -> onXacNhan());
 
 
         // Tương tự cho các phần khác như update và delete...
@@ -421,13 +428,14 @@ public class ThuocController implements Initializable {
             moTaThuocAddField.clear();
             loaiSPComboBox.getSelectionModel().clearSelection();
             loaiSPCBUpdate.getSelectionModel().clearSelection();
-            soLoAddField.clear();
             giaBanAddField.clear();
             tdpThuocAddField.clear();
             tkdAddField.setSelected(false);
             nhomThuocField.getSelectionModel().clearSelection();
             comboBoxNhaCC.getSelectionModel().clearSelection();
-
+            giaBanAddField.clear();
+            tdpThuocAddField.clear();
+            nhomThuocs.clear();
         }
 
         if(type == 2) {
@@ -459,38 +467,7 @@ public class ThuocController implements Initializable {
         }
     }
 
-    private void onXacNhan() {
-        if (comboBoxNhaCC.getSelectionModel().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Lỗi");
-            alert.setHeaderText("Vui lòng chọn nhà cung cấp!");
-            alert.showAndWait();
-            return;
-        }
-        for (SanPham thuoc : thuocObservableList) {
-            // Thêm thuốc vào danh sách và cơ sở dữ liệu
-            try {
-                if (productService.addSanPham(thuoc)) {
-                    thuocList.add(thuoc);
-                    cleanInput(CLEAN_ADD_Thuoc_INPUT);
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Thành công");
-                    alert.setHeaderText("Lưu thông tin thuốc thành công.");
-                    alert.showAndWait();
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Lỗi");
-                    alert.setHeaderText("Thêm thông tin thuốc không thành công!");
-                    alert.showAndWait();
-                }
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
 
-        // Xoa rong
-        thuocObservableList.clear();
-    }
 
 
     private void onAddThuocClick() {
@@ -545,18 +522,16 @@ public class ThuocController implements Initializable {
         sanPham.setDonViTinh(dvt);
         sanPham.setNgaySX(LocalDate.parse("2024-01-01"));
         sanPham.setNhomThuoc(nhomThuoc);
-        System.out.println(dvt);
-        System.out.println(nhomThuoc);
-        System.out.println(sanPham);
-
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Thành công");
+        alert.setHeaderText("Đã thêm thuốc thành công");
+        alert.showAndWait();
         try {
+            cleanInput(CLEAN_ADD_Thuoc_INPUT); // Dọn dẹp input sau khi thêm
+
             productService.addSanPham(sanPham);
             thuocList.add(sanPham); // Thêm thuốc vào danh sách
-            cleanInput(CLEAN_ADD_Thuoc_INPUT); // Dọn dẹp input sau khi thêm
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Thành công");
-            alert.setHeaderText("Đã thêm thuốc thành công");
-            alert.showAndWait();
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
