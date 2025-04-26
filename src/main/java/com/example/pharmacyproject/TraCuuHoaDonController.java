@@ -15,6 +15,8 @@ import service.ChiTietHoaDonService;
 import service.HoaDonService;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -94,15 +96,21 @@ public class TraCuuHoaDonController implements Initializable {
         searchBtn.setOnAction(event -> onSearchBtnClick());
         tableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                int index = tableView.getSelectionModel().getSelectedIndex();
+                // Trực tiếp lấy đối tượng đã chọn mà không cần dựa vào index
+                HoaDon selectedHoaDon = newValue;
+
                 try {
-                    displayBillInfo(hoaDonList.get(index));
+                    // Hiển thị thông tin hóa đơn cho đối tượng đã chọn
+                    displayBillInfo(selectedHoaDon);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
+
+                // Cập nhật bảng chi tiết sau khi chọn hóa đơn
                 tableDetail.setItems(dataDetail);
             }
         });
+
 
         comboBoxMenu.setOnAction(event -> {
             String selectedItem = comboBoxMenu.getSelectionModel().getSelectedItem().toString();
@@ -130,8 +138,11 @@ public class TraCuuHoaDonController implements Initializable {
     }
 
     private void addDataSearchByDateToTable(String date) {
+        HoaDon hoaDon;
         try {
-
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate localDate = LocalDate.parse(date, formatter);
+            hoaDonList = invoiceService.timHoaDonTheoNgayLap(localDate);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
