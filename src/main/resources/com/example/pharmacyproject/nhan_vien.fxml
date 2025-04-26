@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -15,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="nhanVienPanel" prefHeight="558.0" prefWidth="752.0" style="-fx-background-color: #fff;" styleClass="anchor-pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacyproject.NhanVienController">
+<AnchorPane fx:id="nhanVienPanel" prefHeight="558.0" prefWidth="752.0" style="-fx-background-color: #fff;" styleClass="anchor-pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacyproject.NhanVienController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Quản lý" textFill="#76c8ee" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
@@ -49,8 +48,8 @@
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="addEmailField" promptText="Email" layoutY="51.0" layoutX="109.0" prefHeight="32.0" prefWidth="150.0"/>
-                        <Label text="Email" layoutY="59.0" layoutX="5.0"  >
+                        <TextField fx:id="addEmailField" layoutX="109.0" layoutY="51.0" prefHeight="32.0" prefWidth="150.0" promptText="Email" />
+                        <Label layoutX="5.0" layoutY="59.0" text="Email">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
@@ -61,7 +60,7 @@
                            </font>
                         </Label>
                         <DatePicker fx:id="addNgayVaoLamPicker" layoutX="109.0" layoutY="93.0" prefHeight="32.0" prefWidth="150.0" promptText="dd-mm-yyyy" />
-                        <TextField fx:id="addHoTenNVField" layoutX="374.0" layoutY="10.0" prefHeight="32.0" prefWidth="180.0" promptText="Nhập họ tên..." />
+                        <TextField fx:id="addHoTenNVField" layoutX="374.0" layoutY="10.0" prefHeight="32.0" prefWidth="369.0" promptText="Nhập họ tên..." />
                         <Label layoutX="276.0" layoutY="18.0" text="Họ tên  ">
                            <font>
                               <Font name="Arial" size="14.0" />
@@ -72,7 +71,7 @@
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="addSdtNVField" layoutX="374.0" layoutY="51.0" prefHeight="32.0" prefWidth="180.0" promptText="Nhập số điện thoại..." />
+                        <TextField fx:id="addSdtNVField" layoutX="374.0" layoutY="51.0" prefHeight="32.0" prefWidth="368.0" promptText="Nhập số điện thoại..." />
                         <TableView fx:id="addNhanVienTable" layoutY="180.0" prefHeight="278.0" prefWidth="754.0">
                            <columns>
                               <TableColumn fx:id="maNVAdd" prefWidth="120.0" text="Mã nhân viên" />
@@ -83,7 +82,7 @@
                               <TableColumn fx:id="ngayVaoLamNVAdd" prefWidth="98.0" text="Ngày vào làm" />
                               <TableColumn fx:id="ttlvNVAdd" prefWidth="120.0" text="Tình trạng làm việc" />
                               <TableColumn fx:id="diaChiNVAdd" prefWidth="180.0" text="Địa chỉ" />
-                              <TableColumn fx:id="chucVuNVAdd" prefWidth="180.0" text="Chức vụ" visible="false"/>
+                              <TableColumn fx:id="chucVuNVAdd" prefWidth="180.0" text="Chức vụ" visible="false" />
                            </columns>
                         </TableView>
                         <Button fx:id="addNVBtn" layoutX="529.0" layoutY="137.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="83.0" style="-fx-background-color: #76c8ee;" text="Thêm " textFill="WHITE">
@@ -103,7 +102,7 @@
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="addCccdField" layoutX="374.0" layoutY="93.0" prefHeight="32.0" prefWidth="180.0" promptText="Nhập căn cước công dân..." />
+                        <TextField fx:id="addCccdField" layoutX="374.0" layoutY="93.0" prefHeight="32.0" prefWidth="367.0" promptText="Nhập căn cước công dân..." />
                         <TextField fx:id="addDiaChiNV" layoutX="109.0" layoutY="137.0" prefHeight="32.0" prefWidth="248.0" promptText="Nhập địa chỉ..." />
                         <Label layoutX="5.0" layoutY="145.0" text="Địa chỉ">
                            <font>
@@ -147,14 +146,14 @@
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="updateEmail" layoutX="109.0" layoutY="50.0" prefHeight="32.0" prefWidth="150.0"/>
+                        <TextField fx:id="updateEmail" layoutX="109.0" layoutY="50.0" prefHeight="32.0" prefWidth="150.0" />
                         <Label layoutX="5.0" layoutY="101.0" text="Ngày vào làm">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
                         <DatePicker fx:id="updateNgayVaoLamPicker" layoutX="109.0" layoutY="93.0" prefHeight="32.0" prefWidth="150.0" promptText="dd-mm-yyyy" />
-                        <TextField fx:id="updateHotenNVField" layoutX="374.0" layoutY="10.0" prefHeight="32.0" prefWidth="180.0" promptText="Nhập họ tên..." />
+                        <TextField fx:id="updateHotenNVField" layoutX="374.0" layoutY="10.0" prefHeight="32.0" prefWidth="370.0" promptText="Nhập họ tên..." />
                         <Label layoutX="276.0" layoutY="18.0" text="Họ tên  ">
                            <font>
                               <Font name="Arial" size="14.0" />
@@ -165,7 +164,7 @@
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="updateSdtNVField" layoutX="374.0" layoutY="51.0" prefHeight="32.0" prefWidth="180.0" promptText="Nhập số điện thoại..." />
+                        <TextField fx:id="updateSdtNVField" layoutX="374.0" layoutY="51.0" prefHeight="32.0" prefWidth="371.0" promptText="Nhập số điện thoại..." />
                         <Label layoutX="276.0" layoutY="101.0" text="CCCD">
                            <font>
                               <Font name="Arial" size="14.0" />

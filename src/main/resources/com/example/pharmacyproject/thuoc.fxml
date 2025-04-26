@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="khachHangPanel" prefHeight="558.0" prefWidth="752.0" styleClass="anchor-pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacyproject.ThuocController">
+<AnchorPane fx:id="khachHangPanel" prefHeight="558.0" prefWidth="752.0" styleClass="anchor-pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacyproject.ThuocController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Quản lý" textFill="#76c8ee" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
@@ -44,25 +44,20 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="752.0">
                      <children>
                         <TextField fx:id="maThuocAddField" disable="true" editable="false" layoutX="95.0" layoutY="9.0" prefHeight="32.0" prefWidth="140.0" visible="false" />
-                        <Label layoutX="5.0" layoutY="17.0" text="Nhà CC">
-                           <font>
-                              <Font name="Arial" size="14.0" />
-                           </font>
-                        </Label>
                         <Label layoutX="5.0" layoutY="58.0" text="Ngày nhập">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <DatePicker fx:id="hanSuDungThuocAddField" layoutX="95.0" layoutY="50.0" prefHeight="32.0" prefWidth="140.0" promptText="dd-mm-yyyy" />
+                        <DatePicker fx:id="ngayNhapThuocAddField" layoutX="95.0" layoutY="50.0" prefHeight="32.0" prefWidth="140.0" promptText="dd-mm-yyyy" />
                         <Label layoutX="5.0" layoutY="98.0" text="Hạn sử dụng">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <DatePicker fx:id="ngayNhapThuocAddField" layoutX="95.0" layoutY="90.0" prefHeight="32.0" prefWidth="140.0" promptText="dd-mm-yyyy" />
-                        <TextField fx:id="tenThuocAddField" layoutX="345.0" layoutY="10.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập tên thuốc...  " />
-                        <Label layoutX="245.0" layoutY="18.0" text="Tên thuốc   ">
+                        <DatePicker fx:id="hanSuDungThuocAddField" layoutX="95.0" layoutY="90.0" prefHeight="32.0" prefWidth="140.0" promptText="dd-mm-yyyy" />
+                        <TextField fx:id="tenThuocAddField" layoutX="93.0" layoutY="10.0" prefHeight="32.0" prefWidth="255.0" promptText="Nhập tên thuốc...  " />
+                        <Label layoutX="2.0" layoutY="18.0" text="Tên thuốc   ">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
@@ -73,15 +68,15 @@
                            </font>
                         </Label>
                         <TextField fx:id="khoiLuongThuocAddField" layoutX="345.0" layoutY="50.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập khối lượng..." />
-                        <TableView fx:id="thuocTableAdd" layoutY="290.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="168.0" prefWidth="752.0">
+                        <TableView fx:id="thuocTableAdd" layoutY="265.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="193.0" prefWidth="752.0">
                            <columns>
                               <TableColumn fx:id="maThuocAdd" prefWidth="84.80001831054688" text="Mã thuốc " />
                               <TableColumn fx:id="tenThuocAdd" prefWidth="155.20001220703125" text="Tên thuốc   " />
                               <TableColumn fx:id="ttThuocAdd" minWidth="1.60003662109375" prefWidth="120.0" text="Tình trạng thuốc" />
                               <TableColumn fx:id="hanSuDungThuocAdd" prefWidth="100.0" text="Hạn sử dụng" />
                               <TableColumn fx:id="khoiLuongThuocAdd" prefWidth="84.0" text="Khối lượng" />
-                              <TableColumn fx:id="thuocKeDonThuocAdd" prefWidth="61.5999755859375" text="Thuốc kê đơn" />
-                              <TableColumn fx:id="dvtThuocAdd" prefWidth="205.5999755859375" text="Đơn vị tính" />
+                              <TableColumn fx:id="thuocKeDonThuocAdd" prefWidth="99.99993896484375" text="Thuốc kê đơn" />
+                              <TableColumn fx:id="dvtThuocAdd" prefWidth="167.20001220703125" text="Đơn vị tính" />
                               <TableColumn fx:id="thuongHieuThuocAdd" prefWidth="100.0" text="Thương hiệu" />
                               <TableColumn fx:id="nsxThuocAdd" prefWidth="100.0" text="Nước sản xuất" />
                               <TableColumn fx:id="moTaThuocAdd" prefWidth="150.0" text="Mô tả" />
@@ -89,7 +84,7 @@
                               <TableColumn fx:id="giaBanThuocAdd" prefWidth="100.0" text="Giá bán" />
                            </columns>
                         </TableView>
-                        <Button fx:id="btnAddThuoc" layoutX="496.0" layoutY="250.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="124.0" style="-fx-background-color: #76c8ee;" text="Thêm " textFill="WHITE">
+                        <Button fx:id="btnAddThuoc" layoutX="613.0" layoutY="214.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="124.0" style="-fx-background-color: #76c8ee;" text="Thêm " textFill="WHITE">
 
                            <font>
                               <Font name="Arial Bold" size="13.0" />
@@ -110,30 +105,30 @@
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="nsxThuocAddField" layoutX="345.0" layoutY="130.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập nước sản xuất..." />
-                        <Label layoutX="245.0" layoutY="138.0" text="Nước sản xuất">
+                        <TextField fx:id="nsxThuocAddField" layoutX="496.0" layoutY="10.0" prefHeight="32.0" prefWidth="242.0" promptText="Nhập nước sản xuất..." />
+                        <Label layoutX="365.0" layoutY="18.0" text="Nước sản xuất">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
 
-                        <TextField fx:id="thuongHieuThuocAddField" layoutX="345.0" layoutY="90.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập thương hiệu..." />
+                        <TextField fx:id="thuongHieuThuocAddField" layoutX="345.0" layoutY="90.0" prefHeight="32.0" prefWidth="392.0" promptText="Nhập thương hiệu..." />
 
                         <Label layoutX="245.0" layoutY="98.0" text="Thương hiệu">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="moTaThuocAddField" alignment="TOP_LEFT" layoutX="585.0" layoutY="100.0" prefHeight="107.0" prefWidth="160.0" promptText="Nhập mô tả..." />
-                        <Label layoutX="496.0" layoutY="98.0" text="Mô tả">
+                        <TextField fx:id="moTaThuocAddField" alignment="TOP_LEFT" layoutX="344.0" layoutY="129.0" prefHeight="33.0" prefWidth="390.0" promptText="Nhập mô tả..." />
+                        <Label layoutX="245.0" layoutY="137.0" text="Mô tả">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
 
-                        <CheckBox fx:id="tkdAddField" layoutX="496.0" layoutY="17.0" mnemonicParsing="false" text="Thuốc kê đơn" />
+                        <CheckBox fx:id="tkdAddField" layoutX="351.0" layoutY="221.0" mnemonicParsing="false" text="Thuốc kê đơn" />
 
-                        <TextField fx:id="tdpThuocAddField" layoutX="345.0" layoutY="171.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập tác dụng phụ..." />
+                        <TextField fx:id="tdpThuocAddField" layoutX="345.0" layoutY="171.0" prefHeight="32.0" prefWidth="389.0" promptText="Nhập tác dụng phụ..." />
 
                         <Label layoutX="242.0" layoutY="179.0" text="Tác dụng phụ">
                            <font>
@@ -141,7 +136,7 @@
                            </font>
                         </Label>
                   
-                        <Button layoutX="361.0" layoutY="250.0" mnemonicParsing="false" opacity="0.6" prefHeight="32.0" prefWidth="124.0" style="-fx-background-color: red;" text=" Xóa rỗng" textFill="WHITE" fx:id="xoaRongAdd">
+                        <Button layoutX="473.0" layoutY="214.0" mnemonicParsing="false" opacity="0.6" prefHeight="32.0" prefWidth="124.0" style="-fx-background-color: red;" text=" Xóa rỗng" textFill="WHITE" fx:id="xoaRongAdd">
                   
                            <font>
                               <Font name="Arial Bold" size="13.0" />
@@ -158,20 +153,15 @@
                            <font>
                               <Font size="14.0" />
                            </font></Label>
-                        <Button layoutX="632.0" layoutY="250.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="106.0" style="-fx-background-color: #76c8ee; -fx-text-fill: #fff;" text="Xác nhận" fx:id="xacNhanButton">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font></Button>
-                        <ComboBox fx:id="comboBoxNhaCC" layoutX="95.0" layoutY="12.0" prefHeight="29.0" prefWidth="140.0" style="-fx-background-color: #ffff; -fx-border-radius: 4; -fx-border-color: #ccc;" />
-                        <ComboBox fx:id="dvtThuocAddField" layoutX="95.0" layoutY="134.0" prefHeight="26.0" prefWidth="141.0" />
-                        <ComboBox fx:id="nhomThuocField" layoutX="585.0" layoutY="54.0" prefHeight="26.0" prefWidth="160.0" />
-                        <ComboBox fx:id="loaiSPComboBox" layoutX="141.0" layoutY="175.0" prefHeight="26.0" prefWidth="96.0" />
-                        <Label layoutX="5.0" layoutY="179.0" text="Loại sản phẩm">
+                        <ComboBox fx:id="dvtThuocAddField" layoutX="95.0" layoutY="127.0" prefHeight="34.0" prefWidth="142.0" style="-fx-background-color: #fff; -fx-border-radius: 4; -fx-border-color: #ccc;" />
+                        <ComboBox fx:id="nhomThuocField" layoutX="585.0" layoutY="49.0" prefHeight="31.0" prefWidth="153.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-radius: 4;" />
+                        <ComboBox fx:id="loaiSPComboBox" layoutX="95.0" layoutY="169.0" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-radius: 4;" />
+                        <Label layoutY="180.0" text="Loại sản phẩm">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="giaBanAddField" layoutX="96.0" layoutY="216.0" prefHeight="26.0" prefWidth="146.0" promptText="nhập giá bán" />
+                        <TextField fx:id="giaBanAddField" layoutX="96.0" layoutY="213.0" prefHeight="34.0" prefWidth="234.0" promptText="nhập giá bán" />
                         <Label layoutY="220.0" text="Giá bán">
                            <font>
                               <Font size="14.0" />
@@ -220,7 +210,7 @@
                            </font>
                         </Label>
                         <TextField fx:id="khoiLuongThuocUpdateField" layoutX="345.0" layoutY="50.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập khối lượng..." />
-                        <TableView fx:id="thuocTableUpdate" layoutY="290.0" prefHeight="168.0" prefWidth="752.0">
+                        <TableView fx:id="thuocTableUpdate" layoutY="263.0" prefHeight="194.0" prefWidth="752.0">
                            <columns>
 
                               <TableColumn fx:id="maThuocUpdate" prefWidth="120.0" text="Mã thuốc" />
@@ -256,7 +246,7 @@
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="moTaThuocUpdateField" layoutX="577.0" layoutY="130.0" prefHeight="76.0" prefWidth="168.0" promptText="Nhập mô tả..." />
+                        <TextField fx:id="moTaThuocUpdateField" layoutX="543.0" layoutY="130.0" prefHeight="34.0" prefWidth="202.0" promptText="Nhập mô tả..." />
                         <Label layoutX="494.0" layoutY="141.0" text="Mô tả">
                            <font>
                               <Font name="Arial" size="14.0" />
@@ -268,23 +258,23 @@
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="tdpThuocUpdateField" layoutX="345.0" layoutY="170.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập tác dụng phụ..." />
+                        <TextField fx:id="tdpThuocUpdateField" layoutX="345.0" layoutY="170.0" prefHeight="32.0" prefWidth="402.0" promptText="Nhập tác dụng phụ..." />
                         <Label layoutX="242.0" layoutY="178.0" text="Tác dụng phụ">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="giaBanThuocUpdateField" disable="true" layoutX="345.0" layoutY="210.0" prefHeight="32.0" prefWidth="140.0">
+                        <TextField fx:id="giaBanThuocUpdateField" disable="true" layoutX="95.0" layoutY="210.0" prefHeight="32.0" prefWidth="140.0">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font></TextField>
-                        <Label layoutX="245.0" layoutY="218.0" text="Giá bán">
+                        <Label layoutX="5.0" layoutY="218.0" text="Giá bán">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
 
-                        <Button layoutX="495.0" layoutY="210.0" mnemonicParsing="false" opacity="0.6" prefHeight="32.0" prefWidth="250.0" style="-fx-background-color: red;" text=" Xóa rỗng" textFill="WHITE" fx:id="xoaRongUpdate">
+                        <Button layoutX="242.0" layoutY="210.0" mnemonicParsing="false" opacity="0.6" prefHeight="32.0" prefWidth="241.0" style="-fx-background-color: red;" text=" Xóa rỗng" textFill="WHITE" fx:id="xoaRongUpdate">
 
                            <font>
                               <Font name="Arial Bold" size="13.0" />
@@ -298,7 +288,7 @@
                            </graphic>
                         </Button>
 
-                        <Button fx:id="btnUpdateThuoc" layoutX="495.0" layoutY="250.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="250.0" style="-fx-background-color: #76c8ee;" text="        Cập nhật  " textFill="WHITE">
+                        <Button fx:id="btnUpdateThuoc" layoutX="495.0" layoutY="210.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="250.0" style="-fx-background-color: #76c8ee;" text="        Cập nhật  " textFill="WHITE">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -308,9 +298,9 @@
                               <Image url="@../../../icon/customer_save.png" />
                            </image>
                         </ImageView>
-                        <ComboBox fx:id="dvtThuocUpdateField" layoutX="95.0" layoutY="134.0" prefHeight="26.0" prefWidth="139.0" />
-                        <ComboBox fx:id="nhomThuocUpdateField" layoutX="577.0" layoutY="93.0" prefWidth="150.0" />
-                        <ComboBox fx:id="loaiSPCBUpdate" layoutX="95.0" layoutY="174.0" prefHeight="26.0" prefWidth="140.0" />
+                        <ComboBox fx:id="dvtThuocUpdateField" layoutX="95.0" layoutY="128.0" prefHeight="32.0" prefWidth="139.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-radius: 4;" />
+                        <ComboBox fx:id="nhomThuocUpdateField" layoutX="582.0" layoutY="89.0" prefHeight="34.0" prefWidth="162.0" style="-fx-background-color: #FFF; -fx-border-color: #CCC; -fx-border-radius: 4;" />
+                        <ComboBox fx:id="loaiSPCBUpdate" layoutX="95.0" layoutY="169.0" prefHeight="32.0" prefWidth="140.0" style="-fx-background-color: #fff; -fx-border-color: #ccc; -fx-border-radius: 4;" />
                         <Label layoutX="5.0" layoutY="178.0" text="Loại SP">
                            <font>
                               <Font name="Arial" size="14.0" />
