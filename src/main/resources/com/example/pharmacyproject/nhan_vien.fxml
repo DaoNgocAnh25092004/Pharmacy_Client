@@ -197,10 +197,10 @@
                               <TableColumn fx:id="cccdNVUpdate" minWidth="1.60003662109375" prefWidth="133.0" text="CCCD" />
                               <TableColumn fx:id="emailNVUpdate" prefWidth="138.0" text="Email" />
                               <TableColumn fx:id="sdtNVUpdate" prefWidth="98.0" text="Số điện thoại" />
-                              <TableColumn fx:id="ngaySinhNVUpdate" prefWidth="98.0" text="Ngày sinh" />
                               <TableColumn fx:id="ngayVaoLamNVUpdate" prefWidth="98.0" text="Ngày vào làm" />
                               <TableColumn fx:id="ttlvNVUpdate" prefWidth="120.0" text="Tình trạng làm việc" />
                               <TableColumn fx:id="diaChiNVUpdate" prefWidth="180.0" text="Địa chỉ" />
+                              <TableColumn fx:id="ngaySinhNVUpdate" prefWidth="98.0" text="Ngày sinh" />
                               <TableColumn fx:id="chucVuNVUpdate" prefWidth="180.0" text="Chức vụ" visible="false" />
                            </columns>
                         </TableView>

@@ -583,6 +583,7 @@ public class NhanVienController implements Initializable {
             updateNgayVaoLamPicker.setValue(null);
             updateTinhTrangLamViecCmbBox.setValue(null);
             chucVuNVUpdateCombobox.setValue(null);
+            updateEmail.clear();
         }
 
         if (type == 3) {
@@ -770,6 +771,7 @@ public class NhanVienController implements Initializable {
             }
             boolean isDeleted = employeeService.xoaNhanVien(nhanVienCanXoa.getMaNhanVien());
             if (isDeleted) {
+                cleanInput(CLEAN_DEL_NV_INPUT);
                 taiKhoanList.removeIf(taiKhoan -> taiKhoan.getMaTaiKhoan().equals(maNV));
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Thành công");
@@ -778,7 +780,6 @@ public class NhanVienController implements Initializable {
 
                 nhanVienList.removeIf(nhanVien -> nhanVien.getMaNhanVien().equals(maNV));
 
-                cleanInput(CLEAN_DEL_NV_INPUT);
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -796,7 +797,6 @@ public class NhanVienController implements Initializable {
 
     private void onDeleteTaiKhoanClick() throws Exception {
         String tenTaiKhoan = maNVField.getText().trim();
-        String maNV = employeeService.timNhanVienTheoTen(tenTaiKhoan).getFirst().getMaNhanVien();
 
         if (!tenTaiKhoan.isEmpty()) {
             Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -809,8 +809,7 @@ public class NhanVienController implements Initializable {
             // Gọi phương thức để xóa tài khoản
                 boolean isDeleted = false;
                 try {
-                    isDeleted = employeeService.xoaNhanVien(maNV);
-                    accountService.xoaTaiKhoan(tenTaiKhoan);
+                    isDeleted =  accountService.xoaTaiKhoan(tenTaiKhoan);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -821,6 +820,9 @@ public class NhanVienController implements Initializable {
                 alert.setHeaderText("Đã xóa tài khoản thành công");
                 alert.showAndWait();
 
+                // Làm sạch input sau khi xóa
+                    cleanInput(CLEAN_DEL_TK_INPUT);
+
                 // Cập nhật danh sách tài khoản
                 taiKhoanList.removeIf(taiKhoan -> taiKhoan.getMaTaiKhoan().equals(tenTaiKhoan));
 
@@ -829,9 +831,6 @@ public class NhanVienController implements Initializable {
 
                 // Cập nhật bảng hiển thị tài khoản
                 taiKhoanNhanVienTable.setItems(tkFilteredData);
-
-                // Làm sạch input sau khi xóa
-                cleanInput(CLEAN_DEL_TK_INPUT);
             } else {
                 // Thông báo không tìm thấy tài khoản
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -870,6 +869,7 @@ public class NhanVienController implements Initializable {
 
         // Find the account based on the username
         TaiKhoan taiKhoan = findTaiKhoanInTable(tenTaiKhoan);
+        taiKhoan.setVaiTro(VaiTro.valueOf(chucVuDisplayName));
         if (taiKhoan == null) {
             showAlert(Alert.AlertType.ERROR, "Error", "Không tìm thấy tài khoản");
             return; // Exit if account not found
@@ -878,7 +878,7 @@ public class NhanVienController implements Initializable {
         try {
             accountService.update(taiKhoan);
             updateTaiKhoanList(taiKhoan);
-            cleanInput(CLEAN_UPDATE_INPUT);
+            cleanInput(CLEAN_DEL_TK_INPUT);
             showAlert(Alert.AlertType.INFORMATION, "Thành công", "Đã cập nhật thông tin tài khoản");
         } catch (Exception e) {
             // Handle any exceptions that may arise during the update

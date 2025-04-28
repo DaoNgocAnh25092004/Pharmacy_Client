@@ -347,6 +347,11 @@ public class ThuocController implements Initializable {
                 maThuocUpdateField.setText(thuoc.getMaSP());
                 tenThuocUpdateField.setText(thuoc.getTenSP());
                 hanSuDungThuocUpdateField.setValue(thuoc.getHanSD());
+                nhomThuocUpdateField.setValue(newValue.getNhomThuoc());
+
+                loaiSPCBUpdate.setValue(newValue.getLoaiSP());
+                dvtThuocUpdateField.setValue(newValue.getDonViTinh());
+                tkdUpdateField.setSelected(newValue.isThuocKeDon());
 
                 // Format khoiLuong
                 String khoiLuongFormatted = decimalFormat.format(thuoc.getKhoiLuong());
@@ -356,12 +361,10 @@ public class ThuocController implements Initializable {
                 thuongHieuThuocUpdateField.setText(thuoc.getThuongHieu());
                 moTaThuocUpdateField.setText(thuoc.getMoTa());
 
-                // Format giaNhap
-                String giaNhapFormatted = decimalFormat.format(thuoc.getGiaBan());
-                giaNhapThuocUpdateField.setText(giaNhapFormatted);
+                giaBanThuocUpdateField.setText(String.valueOf(newValue.getGiaBan()));
+                tdpThuocUpdateField.setText(newValue.getTacDungPhu());
+                ngayNhapThuocUpdateField.setValue(thuoc.getNgaySX());
 
-
-                thanhPhanThuocUpdateField.setText(thuoc.getMoTa());
                 tdpThuocUpdateField.setText(thuoc.getTacDungPhu());
 
                 // Format giaBan
@@ -449,21 +452,17 @@ public class ThuocController implements Initializable {
             nsxThuocUpdateField.clear();
             thuongHieuThuocUpdateField.clear();
             moTaThuocUpdateField.clear();
-            giaNhapThuocUpdateField.clear();
-            thueSuatThuocUpdateField.clear();
-            loiNhuanThuocUpdateField.clear();
-            thanhPhanThuocUpdateField.clear();
             nhomThuocUpdateField.getSelectionModel().clearSelection();
             tdpThuocUpdateField.clear();
             giaBanThuocUpdateField.clear();
             tkdUpdateField.setSelected(false);
             nhomThuocField.getSelectionModel().clearSelection();
+            loaiSPCBUpdate.setValue(null);
         }
 
         if(type == 3) {
             maThuocDelField.clear();
             tenThuocDelField.clear();
-            ngayNhapThuocDelField.setValue(null);
         }
     }
 
@@ -554,10 +553,7 @@ public class ThuocController implements Initializable {
         LocalDate hanSuDung = hanSuDungThuocUpdateField.getValue();
         String khoiLuongString = khoiLuongThuocUpdateField.getText().trim();
         DonViTinh dvt = dvtThuocUpdateField.getValue();
-        String giaNhapString = giaNhapThuocUpdateField.getText().trim();
-        String thueSuatString = thueSuatThuocUpdateField.getText().trim();
-        String loiNhuanString = loiNhuanThuocUpdateField.getText().trim();
-        String thanhPhan = thanhPhanThuocUpdateField.getText().trim();
+        String giaNhapString = giaBanThuocUpdateField.getText().trim();
         NhomThuoc nhomThuoc = nhomThuocUpdateField.getValue();
         String tdp = tdpThuocUpdateField.getText().trim();
         String nsx = nsxThuocUpdateField.getText().trim();
@@ -583,17 +579,10 @@ public class ThuocController implements Initializable {
                     double giaNhap = Double.parseDouble(giaNhapString);
                     thuoc.setGiaBan(giaNhap);
 
-                    // Tính lại giá bán khi giá nhập thay đổi
-                    double loiNhuan = !loiNhuanString.isEmpty() ? Double.parseDouble(loiNhuanString) : 0;
-                    double thueSuat = !thueSuatString.isEmpty() ? Double.parseDouble(thueSuatString) : 0;
 
-                    // Công thức tính giá bán
-                    double phanTramLoiNhuan = (loiNhuan / giaNhap) * 100;
-                    double giaBan = giaNhap * (1 + phanTramLoiNhuan / 100) * (1 + thueSuat / 100);
 
-                    thuoc.setGiaBan(giaBan);  // Cập nhật giá bán
+                    thuoc.setGiaBan(Double.parseDouble(giaNhapString));
                 }
-                if (!thanhPhan.isEmpty()) thuoc.setMoTa(thanhPhan);
                 if (!tdp.isEmpty()) thuoc.setTacDungPhu(tdp);
                 if (!nsx.isEmpty()) thuoc.setNuocSX(nsx);
                 if (!thuongHieu.isEmpty()) thuoc.setThuongHieu(thuongHieu);
@@ -663,64 +652,53 @@ public class ThuocController implements Initializable {
         // Lấy giá trị mã thuốc từ trường nhập liệu
         String maThuoc = maThuocDelField.getText().trim();
 
-        // Kiểm tra xem mã thuốc có rỗng không
         if (!maThuoc.isEmpty()) {
-            // Tìm thuốc trong cơ sở dữ liệu theo mã thuốc
-            SanPham thuoc = findThuocInTable(maThuoc);  // Tìm thuốc theo mã
+            // Tìm thuốc trong danh sách/table
+            SanPham thuoc = findThuocInTable(maThuoc);
 
             if (thuoc != null) {
-                // Hiển thị hộp thoại xác nhận trước khi xóa
+                // Xác nhận trước khi xóa
                 Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
                 confirmAlert.setTitle("Xác nhận xóa");
                 confirmAlert.setHeaderText("Bạn có chắc chắn muốn xóa thuốc này?");
-                confirmAlert.setContentText("Tên thuốc: " + thuoc.getTenSP());  // Hiển thị tên thuốc trong hộp thoại
+                confirmAlert.setContentText("Tên thuốc: " + thuoc.getTenSP());
 
-                // Chờ người dùng chọn Yes hoặc No
                 Optional<ButtonType> result = confirmAlert.showAndWait();
                 if (result.isPresent() && result.get() == ButtonType.OK) {
-                    // Nếu người dùng chọn "Yes", gọi phương thức xóa
-                    boolean isDeleted = false;  // Gọi phương thức xóa từ ThuocDAO
+                    boolean isDeleted = false;
                     try {
-//                        isDeleted = productService.removeSanPham(maThuoc);
+                        isDeleted = productService.removeSanPham(thuoc);  // Truyền đối tượng thuốc vào đây
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
 
                     if (isDeleted) {
-                        // Cập nhật danh sách thuốc sau khi xóa
-                        thuocList.remove(thuoc);
+                        thuocList.remove(thuoc); // Xóa khỏi danh sách hiển thị
+                        cleanInput(CLEAN_DEL_Thuoc_INPUT); // Dọn dẹp input
 
-                        // Dọn dẹp input sau khi xóa
-                        cleanInput(CLEAN_DEL_Thuoc_INPUT);
-
-                        // Thông báo thành công
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Thành công");
                         alert.setHeaderText("Đã xóa thuốc");
                         alert.showAndWait();
                     } else {
-                        // Thông báo lỗi nếu xóa không thành công
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Lỗi");
                         alert.setHeaderText("Không thể xóa thuốc");
                         alert.showAndWait();
                     }
                 } else {
-                    // Nếu người dùng chọn "No" hoặc đóng hộp thoại, không thực hiện hành động xóa
                     System.out.println("Người dùng đã hủy xóa thuốc.");
                 }
             } else {
-                // Thông báo lỗi nếu không tìm thấy thuốc
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Lỗi");
                 alert.setHeaderText("Không tìm thấy thuốc với mã đã nhập");
                 alert.showAndWait();
             }
         } else {
-            // Thông báo lỗi nếu mã thuốc rỗng
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Cảnh báo");
-            alert.setHeaderText("Vui lòng nhập it nhất mã thuốc để xóa");
+            alert.setHeaderText("Vui lòng nhập ít nhất mã thuốc để xóa");
             alert.showAndWait();
         }
     }

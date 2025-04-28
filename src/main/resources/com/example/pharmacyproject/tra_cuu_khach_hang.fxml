@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="traCuuKhachHangPanel" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacyproject.TraCuuKhachHangController">
+<AnchorPane fx:id="traCuuKhachHangPanel" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacyproject.TraCuuKhachHangController">
     <children>
         <HBox layoutX="14.0" layoutY="14.0" spacing="10">
             <children>
@@ -26,7 +26,7 @@
             </children>
         </HBox>
 
-        <TextField fx:id="searchByPhoneNumberField" layoutX="14.0" layoutY="46.0" prefHeight="27.0" prefWidth="360.0" promptText="Nhập số điện thoại hoặc tên khách hàng">
+        <TextField fx:id="searchByPhoneNumberField" layoutX="14.0" layoutY="46.0" prefHeight="27.0" prefWidth="360.0" promptText="Nhập số điện thoại ">
          <font>
             <Font size="13.0" />
          </font></TextField>

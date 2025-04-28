@@ -191,13 +191,13 @@
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <DatePicker fx:id="hanSuDungThuocUpdateField" layoutX="95.0" layoutY="50.0" prefHeight="32.0" prefWidth="140.0" promptText="dd-mm-yyyy" />
+                        <DatePicker fx:id="ngayNhapThuocUpdateField" layoutX="95.0" layoutY="50.0" prefHeight="32.0" prefWidth="140.0" promptText="dd-mm-yyyy" />
                         <Label layoutX="5.0" layoutY="98.0" text="Hạn sử dụng">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <DatePicker fx:id="ngayNhapThuocUpdateField" layoutX="95.0" layoutY="90.0" prefHeight="32.0" prefWidth="140.0" promptText="dd-mm-yyyy" />
+                        <DatePicker fx:id="hanSuDungThuocUpdateField" layoutX="95.0" layoutY="90.0" prefHeight="32.0" prefWidth="140.0" promptText="dd-mm-yyyy" />
                         <TextField fx:id="tenThuocUpdateField" layoutX="345.0" layoutY="10.0" prefHeight="32.0" prefWidth="140.0" promptText="Nhập tên thuốc...  " />
                         <Label layoutX="245.0" layoutY="18.0" text="Tên thuốc   ">
                            <font>
